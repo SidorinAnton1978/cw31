@@ -5,7 +5,7 @@ from app.DAO.comments_dao import CommentsDAO
 from config import DATA_PATH_POSTS, DATA_PATH_COMMENTS, DATA_PATH_BOOKMARKS
 
 
-post_blueprint = Blueprint('blueprint_post', __name__, template_folder='../templates')
+post_blueprint = Blueprint('blueprint_post', __name__, template_folder='templates')
 posts_dao = PostDAO(DATA_PATH_POSTS)
 comments_dao = CommentsDAO(DATA_PATH_COMMENTS)
 
