@@ -30,13 +30,15 @@ def one_posts_page(pk):
     one_post = posts_dao.get_by_pk(pk)
     comments = comments_dao.get_comments_by_post_id(post_id=pk)
     if one_post is None:
-        abort(404)
+        abort(404, 'Такого поста не существует')
     return render_template('post.html', post=one_post, comments=comments, len_comments=len(comments))
 
 
 @post_blueprint.get('/user/<user_name>')
 def page_by_user_name(user_name):
     posts = posts_dao.get_by_poster(user_name)
+    if not posts:
+        abort(404, 'Такого пользователя не существует')
     return render_template('user-feed.html', posts=posts, user_name=user_name)
 
 
