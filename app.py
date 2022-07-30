@@ -7,7 +7,7 @@ import config_logger
 
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
-config_logger.config(app)
+config_logger.config()
 
 
 app.register_blueprint(post_blueprint)
